@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Radiant Midlife Membership · Tara Preston</title>
+<meta name="description" content="Healing the Mother Wound in Midlife — from depleted to deeply nourished. A supportive membership for women ready to reclaim their vitality.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Inter', sans-serif; background: #FAFAFA; color: #161A20; overflow-x: hidden; }
+img, video { display: block; max-width: 100%; }
+a { text-decoration: none; color: inherit; }
+
+/* ── type helpers ── */
+.serif-italic { font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; }
+.eyebrow { font-size: .7rem; text-transform: uppercase; letter-spacing: .16em; color: #8a8f9a; }
+
+/* ── burgundy accent ── */
+:root { --burg: #7B1A33; --burg-light: #f9f0f3; }
+
+/* ── pill buttons ── */
+.btn {
+  display: inline-flex; align-items: center; gap: .4rem;
+  padding: .65rem 1.5rem; border-radius: 999px;
+  font-family: 'Inter', sans-serif; font-weight: 500; font-size: .875rem;
+  transition: background .25s, color .25s, transform .25s; cursor: pointer; white-space: nowrap;
+}
+.btn-glass {
+  background: rgba(255,255,255,.92); color: #161A20;
+  border: 1px solid rgba(22,26,32,.1); backdrop-filter: blur(10px);
+}
+.btn-glass:hover { background: #161A20; color: #fff; transform: translateY(-1px); }
+.btn-dark  { background: #161A20; color: #fff; border: 1px solid #161A20; }
+.btn-dark:hover  { background: #fff; color: #161A20; transform: translateY(-1px); }
+.btn-burg  { background: var(--burg); color: #fff; border: 1px solid var(--burg); }
+.btn-burg:hover  { background: #5e1326; transform: translateY(-1px); }
+.btn-burg-outline { background: transparent; color: var(--burg); border: 1.5px solid var(--burg); }
+.btn-burg-outline:hover { background: var(--burg); color: #fff; transform: translateY(-1px); }
+
+/* ── social circles ── */
+.soc {
+  width: 36px; height: 36px; border-radius: 50%; flex-shrink: 0;
+  background: rgba(255,255,255,.9); backdrop-filter: blur(8px);
+  border: 1px solid rgba(22,26,32,.1);
+  display: inline-flex; align-items: center; justify-content: center;
+  color: #161A20; transition: background .2s, color .2s, transform .2s;
+}
+.soc:hover { background: var(--burg); color: #fff; border-color: var(--burg); transform: translateY(-2px); }
+.soc svg { width: 15px; height: 15px; }
+
+/* ── monogram ── */
+.mono {
+  width: 48px; height: 48px; border-radius: 50%; flex-shrink: 0;
+  background: rgba(255,255,255,.9); backdrop-filter: blur(10px);
+  border: 1px solid rgba(22,26,32,.1);
+  display: inline-flex; align-items: center; justify-content: center;
+  font-family: 'Instrument Serif', serif; font-style: italic; font-size: 1.1rem; color: #161A20;
+  animation: float 3.4s ease-in-out infinite;
+}
+
+/* ── animations ── */
+@keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-5px)} }
+@keyframes kb    { from{transform:scale(1.05)} to{transform:scale(1)} }
+
+/* ── fade-rise ── */
+.fr { opacity: 0; transform: translateY(16px); transition: opacity .75s cubic-bezier(.22,1,.36,1), transform .75s cubic-bezier(.22,1,.36,1); }
+.fr.on { opacity: 1; transform: none; }
+.d1{transition-delay:.1s} .d2{transition-delay:.2s} .d3{transition-delay:.3s} .d4{transition-delay:.4s}
+
+/* ══════════════ HERO ══════════════ */
+#hero {
+  position: relative; width: 100%; height: 100svh;
+  overflow: hidden; background: #141f17;
+}
+#hero video {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; object-position: center top;
+}
+#hero::after {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(to bottom,
+    rgba(18,30,20,.55) 0%,
+    rgba(18,30,20,.35) 35%,
+    rgba(18,30,20,.30) 60%,
+    rgba(10,18,12,.65) 100%);
+}
+#hero nav {
+  position: absolute; top: 0; left: 0; right: 0; z-index: 10;
+  padding: 1.25rem 2rem; display: flex; align-items: center; justify-content: space-between;
+  background: rgba(123,26,51,.72); backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255,255,255,.12);
+}
+.logo-img { height: 38px; width: auto; display: block; }
+.wordmark { display: inline-flex; align-items: baseline; gap: 0; line-height: 1; }
+.wordmark span:first-child { font-family:'Inter',sans-serif; font-weight:500; font-size:1.1rem; color:#fff; }
+.wordmark span:last-child  { font-family:'Instrument Serif',serif; font-style:italic; font-size:1.1rem; color:#fff; }
+
+#hero-copy {
+  position: absolute; top: 42%; left: 0; right: 0; z-index: 10;
+  text-align: center; padding: 0 1.5rem;
+}
+#hero-copy h1 {
+  font-family: 'Inter', sans-serif; font-weight: 400;
+  font-size: clamp(1.7rem, 4.5vw, 3.4rem);
+  line-height: 1.22; letter-spacing: -.02em; color: #fff;
+  max-width: 720px; margin: 0 auto;
+}
+#hero-copy p {
+  margin-top: 1.25rem; font-size: 1rem; color: rgba(255,255,255,.78);
+  letter-spacing: .01em;
+}
+#hero-copy .hero-cta { margin-top: 2rem; }
+
+#hero-bottom {
+  position: absolute; bottom: 1.5rem; left: 0; right: 0; z-index: 10;
+  display: flex; align-items: flex-end; justify-content: space-between;
+  padding: 0 1.75rem;
+}
+.socials-col { display: flex; flex-direction: column; gap: .5rem; }
+
+/* ══════════════ IMAGINE STRIP ══════════════ */
+#imagine {
+  background: var(--burg-light);
+  border-top: 3px solid var(--burg);
+  padding: 4rem 2rem;
+  text-align: center;
+}
+#imagine .inner { max-width: 700px; margin: 0 auto; }
+#imagine h2 {
+  font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400;
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+  line-height: 1.4; color: var(--burg); margin-bottom: 1.75rem;
+}
+#imagine ul { list-style: none; display: flex; flex-direction: column; gap: .65rem; }
+#imagine ul li {
+  font-size: 1rem; line-height: 1.6; color: #3a1120;
+}
+#imagine ul li::before { content: '✦ '; color: var(--burg); }
+#imagine .coda {
+  margin-top: 2rem; font-size: .975rem; color: #5F6472; line-height: 1.75;
+}
+
+/* ══════════════ ABOUT ══════════════ */
+#about {
+  max-width: 820px; margin: 0 auto;
+  padding: 6rem 2rem 5rem;
+}
+#about .rule { width: 36px; height: 2px; background: var(--burg); margin: 1rem 0 2.25rem; }
+#about h2 {
+  font-family: 'Inter', sans-serif; font-weight: 400;
+  font-size: clamp(1.6rem, 3.5vw, 2.6rem);
+  line-height: 1.28; letter-spacing: -.015em; max-width: 640px;
+}
+#about .body {
+  margin-top: 2.25rem; max-width: 580px;
+  font-size: .975rem; line-height: 1.8; color: #5F6472;
+  display: flex; flex-direction: column; gap: 1.1rem;
+}
+#about .ready-list {
+  margin-top: 2.5rem; list-style: none; display: flex; flex-direction: column; gap: .55rem;
+}
+#about .ready-list li { font-size: .95rem; color: #3a1120; }
+#about .ready-list li::before { content: '✦ '; color: var(--burg); }
+
+/* ══════════════ OFFERS (4-col cards) ══════════════ */
+#offers { padding: 1rem 0 5rem; }
+#offers .header { max-width: 1160px; margin: 0 auto; padding: 0 2rem 3rem; }
+#offers h2 {
+  font-family: 'Inter', sans-serif; font-weight: 400;
+  font-size: clamp(1.7rem, 3.8vw, 2.8rem);
+  line-height: 1.15; letter-spacing: -.02em; max-width: 520px; margin-top: .6rem;
+}
+
+.cards {
+  max-width: 1160px; margin: 0 auto; padding: 0 2rem;
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem;
+}
+@media(max-width: 900px) { .cards { grid-template-columns: repeat(2, 1fr); } }
+@media(max-width: 540px) { .cards { grid-template-columns: 1fr; } }
+
+.card {
+  border: 1px solid #E4E4E4; border-radius: 18px; overflow: hidden;
+  background: #fff; transition: transform .3s ease, box-shadow .3s ease;
+}
+.card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(123,26,51,.1); }
+.card-img { width: 100%; aspect-ratio: 3/4; overflow: hidden; background: #ddd5d8; }
+.card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
+.card:hover .card-img img { transform: scale(1.04); }
+.card-body { padding: 1.5rem; }
+.card-num  { font-family:'Instrument Serif',serif; font-style:italic; font-size:1.3rem; color: var(--burg); opacity: .5; }
+.card-body h3 {
+  margin-top: .4rem; font-family:'Inter',sans-serif; font-weight:500;
+  font-size: 1rem; line-height: 1.3; letter-spacing: -.01em;
+}
+.card-body p { margin-top: .6rem; font-size: .875rem; color: #5F6472; line-height: 1.7; }
+
+/* ══════════════ JOURNEY (list) ══════════════ */
+#journey { border-top: 1px solid #E4E4E4; padding: 5rem 2rem; }
+#journey .inner { max-width: 900px; margin: 0 auto; }
+#journey h2 {
+  font-family:'Inter',sans-serif; font-weight:400;
+  font-size: clamp(1.7rem,3.8vw,2.6rem);
+  line-height:1.15; letter-spacing:-.02em; max-width:480px; margin: .6rem 0 3.5rem;
+}
+.jrow {
+  display: grid; grid-template-columns: 56px 1fr 1.6fr;
+  gap: 1.5rem; padding: 1.75rem 0; border-bottom: 1px solid #E4E4E4; align-items: start;
+}
+.jrow:last-child { border-bottom: none; }
+.jrow .num  { font-family:'Instrument Serif',serif; font-style:italic; font-size:1.5rem; color: var(--burg); opacity:.45; padding-top:.1rem; }
+.jrow h4    { font-size: 1rem; font-weight: 500; letter-spacing:-.01em; line-height:1.3; }
+.jrow p     { font-size: .875rem; color:#5F6472; line-height:1.75; }
+@media(max-width:580px) { .jrow { grid-template-columns:1fr; gap:.5rem; } }
+
+/* ══════════════ TARA BIO ══════════════ */
+#bio {
+  background: var(--burg); color: #fff;
+  padding: 5rem 2rem;
+}
+#bio .inner { max-width: 1080px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.4fr; gap: 4rem; align-items: start; }
+@media(max-width:720px) { #bio .inner { grid-template-columns:1fr; gap:2.5rem; } }
+#bio .bio-img-wrap {
+  border-radius: 20px; overflow: hidden;
+  aspect-ratio: 3/4; background: rgba(255,255,255,.15);
+  display: flex; align-items: center; justify-content: center;
+}
+#bio .bio-img-wrap img { width:100%; height:100%; object-fit:cover; }
+#bio .bio-img-placeholder {
+  font-family:'Instrument Serif',serif; font-style:italic;
+  font-size:1rem; color:rgba(255,255,255,.5); text-align:center; padding: 2rem;
+}
+#bio .eyebrow { color: rgba(255,255,255,.55); margin-bottom: 1.25rem; }
+#bio h2 {
+  font-family:'Inter',sans-serif; font-weight:400;
+  font-size: clamp(1.8rem,3.5vw,2.6rem);
+  line-height:1.18; letter-spacing:-.02em; margin-bottom:1.75rem;
+}
+#bio .bio-text {
+  font-size:.955rem; line-height:1.85; color:rgba(255,255,255,.82);
+  display:flex; flex-direction:column; gap:1rem;
+}
+#bio .bio-tagline {
+  margin-top: 2rem; font-family:'Instrument Serif',serif; font-style:italic;
+  font-size:1.2rem; color:rgba(255,255,255,.7); line-height:1.55;
+}
+
+/* ══════════════ TESTIMONIALS ══════════════ */
+#testimonials { padding: 5rem 2rem; }
+#testimonials .inner { max-width: 1080px; margin: 0 auto; }
+.tgrid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:1.25rem; margin-top:2.5rem; }
+.tcard {
+  background:#fff; border:1px solid #E4E4E4; border-radius:18px; padding:2rem;
+  border-top: 3px solid var(--burg);
+}
+.tcard q {
+  font-family:'Instrument Serif',serif; font-style:italic;
+  font-size:1.05rem; line-height:1.72; color:#161A20; quotes:none;
+}
+.tcard q::before { content:'\201C'; }
+.tcard q::after  { content:'\201D'; }
+.tcard cite {
+  display:block; margin-top:1.25rem;
+  font-size:.72rem; letter-spacing:.1em; text-transform:uppercase; color: var(--burg);
+  font-style:normal;
+}
+
+/* ══════════════ PRICING ══════════════ */
+#pricing {
+  padding: 5rem 2rem 6rem;
+  background: var(--burg-light);
+  border-top: 1px solid rgba(123,26,51,.12);
+}
+#pricing .inner { max-width: 860px; margin: 0 auto; text-align: center; }
+#pricing h2 {
+  font-family:'Inter',sans-serif; font-weight:400;
+  font-size: clamp(1.8rem,3.8vw,2.8rem);
+  line-height:1.15; letter-spacing:-.02em; margin-bottom:.75rem;
+}
+#pricing .sub { font-size:.975rem; color:#5F6472; line-height:1.7; max-width:520px; margin:0 auto 3rem; }
+.pricing-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; }
+@media(max-width:580px) { .pricing-grid { grid-template-columns:1fr; } }
+.price-card {
+  background:#fff; border-radius:22px; padding:2.5rem 2rem;
+  border:2px solid rgba(123,26,51,.15);
+  transition: box-shadow .3s, transform .3s;
+}
+.price-card:hover { box-shadow: 0 16px 48px rgba(123,26,51,.12); transform: translateY(-3px); }
+.price-card.featured {
+  border-color: var(--burg);
+  position: relative; overflow: hidden;
+}
+.price-card.featured::before {
+  content: '1 month free'; position:absolute; top:16px; right:-24px;
+  background: var(--burg); color:#fff; font-size:.65rem; font-weight:600;
+  letter-spacing:.1em; text-transform:uppercase;
+  padding:.35rem 2.5rem; transform:rotate(45deg);
+}
+.price-label { font-size:.72rem; text-transform:uppercase; letter-spacing:.14em; color:var(--burg); font-weight:500; margin-bottom:.75rem; }
+.price-amount {
+  font-family:'Inter',sans-serif; font-weight:400;
+  font-size:clamp(2.4rem,5vw,3.6rem); letter-spacing:-.03em; line-height:1;
+  color:#161A20;
+}
+.price-amount sup { font-size:.45em; vertical-align:super; }
+.price-period { font-size:.85rem; color:#8a8f9a; margin-top:.35rem; }
+.price-desc { margin: 1.5rem 0 2rem; font-size:.9rem; color:#5F6472; line-height:1.7; }
+.price-note { margin-top:1.25rem; font-size:.75rem; color:#aaa; }
+
+/* ══════════════ JOIN / CTA ══════════════ */
+#join {
+  background: #161A20; color: #FAFAFA;
+  padding: 6rem 2rem; text-align:center;
+}
+#join .inner { max-width:680px; margin:0 auto; }
+#join .eyebrow { color:rgba(255,255,255,.4); margin-bottom:2rem; }
+#join h2 {
+  font-family:'Inter',sans-serif; font-weight:400;
+  font-size:clamp(2.2rem,6vw,4.5rem);
+  line-height:1.08; letter-spacing:-.025em; margin-bottom:1.5rem;
+}
+#join p { font-size:.975rem; color:rgba(255,255,255,.58); line-height:1.75; max-width:440px; margin:0 auto 2.5rem; }
+.join-actions { display:flex; flex-wrap:wrap; gap:1rem; align-items:center; justify-content:center; }
+
+/* ══════════════ FOOTER ══════════════ */
+footer {
+  background:#FAFAFA; border-top:1px solid #E4E4E4;
+  padding:3rem 2rem 1.75rem;
+}
+footer .inner {
+  max-width:1080px; margin:0 auto;
+  display:flex; flex-wrap:wrap; align-items:flex-end; justify-content:space-between; gap:2rem;
+}
+.footer-logo-band {
+  background: #F5EAE5;
+  display: flex; align-items: center; justify-content: center;
+  padding: 2.5rem 2rem;
+}
+.footer-logo-band img { height: 120px; width: auto; display: block; }
+footer .tagline { margin-top:.5rem; font-size:.85rem; color:#8a8f9a; }
+.footer-right { display:flex; flex-direction:column; align-items:flex-end; gap:1rem; }
+.footer-socs  { display:flex; gap:.5rem; }
+.footer-legal {
+  margin-top:2.25rem; padding-top:1.5rem; border-top:1px solid #E4E4E4;
+  max-width:1080px; margin-left:auto; margin-right:auto;
+  display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:.75rem;
+}
+.footer-legal p, .footer-legal a { font-size:.73rem; color:#8a8f9a; }
+.footer-legal a:hover { color:#161A20; }
+.footer-links { display:flex; gap:1.5rem; }
+</style>
+</head>
+<body>
+
+<!-- ══ HERO ══ -->
+<section id="hero">
+  <video autoplay loop muted playsinline>
+    <source src="mysticbella_httpss.mj.run6WsU9iKGnAM_create_a_looping_video_o_c2c2c325-51b0-4fb8-8576-272d239526b1_3.mp4" type="video/mp4">
+  </video>
+
+  <nav>
+    <a href="#" aria-label="Radiant Midlife home" class="wordmark">
+      <span>Radiant&nbsp;</span><span>Midlife</span>
+    </a>
+    <a href="#pricing" class="btn btn-glass">Join the membership</a>
+  </nav>
+
+  <div id="hero-copy">
+    <h1 class="fr">
+      A <span class="serif-italic">sacred space</span> for women<br>ready to return to themselves.
+    </h1>
+    <p class="fr d2">Healing the Mother Wound in Midlife — from depleted to deeply nourished.</p>
+    <div class="hero-cta fr d3">
+      <a href="#pricing" class="btn btn-burg">Begin your journey →</a>
+    </div>
+  </div>
+
+  <div id="hero-bottom">
+    <div class="socials-col">
+      <a href="#" class="soc" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+      </a>
+      <a href="#" class="soc" aria-label="Facebook">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+      </a>
+    </div>
+    <div class="mono">R<sup>m</sup></div>
+    <div style="width:72px"></div>
+  </div>
+</section>
+
+
+<!-- ══ ABOUT ══ -->
+<section id="about">
+  <p class="eyebrow fr">The membership</p>
+  <div class="rule fr d1"></div>
+  <h2 class="fr d2">
+    You've <span class="serif-italic">done the healing.</span><br>
+    Read the books. Taken the courses.<br>And yet…
+  </h2>
+  <div class="body fr d3">
+    <p>You still find yourself putting your needs last. You know what to do, but struggle to make it stick. You long to feel more energized, more nourished, more connected to yourself — but life keeps pulling you back into old patterns.</p>
+    <p>This is the hidden impact of the <strong>Mother Wound</strong> — the inherited conditioning that teaches women to overgive, over-function, care for everyone else, and disconnect from their own needs in the process.</p>
+    <p>The Radiant Midlife Membership was created to help you change that. This is not another health challenge. Not another self-improvement program. Not another place to consume more information.</p>
+    <p>It's a space to slow down, reconnect, receive support, and create lasting shifts that support your vitality, nourishment, and wellbeing for years to come.</p>
+    <p style="font-weight:500; color:#161A20;">Women join because they're tired of carrying it all alone. They're ready to:</p>
+  </div>
+  <ul class="ready-list fr d4">
+    <li>Break free from patterns of overgiving and depletion</li>
+    <li>Feel more nourished in their body, mind, and life</li>
+    <li>Learn to tune in to their needs and actually honor them</li>
+    <li>Create simple shifts that actually stick</li>
+    <li>Receive support instead of carrying everything themselves</li>
+    <li>Reclaim the woman beneath the responsibilities</li>
+    <li>Become deeply nourished and fully alive</li>
+    <li>Heal their relationship to self, food, and their sacred beauty</li>
+  </ul>
+</section>
+
+
+<!-- ══ IMAGINE ══ -->
+<section id="imagine">
+  <div class="inner">
+    <h2 class="fr">Imagine…</h2>
+    <ul class="fr d1">
+      <li>Waking up with more energy.</li>
+      <li>Trusting yourself again.</li>
+      <li>Feeling at home in your body.</li>
+      <li>Making choices that support your wellbeing without guilt.</li>
+      <li>Knowing how to nourish yourself without constantly starting over.</li>
+      <li>Feeling deeply connected to who you are in this season of life.</li>
+    </ul>
+    <p class="coda fr d2">
+      This is the work.<br>Not becoming someone new.<br>
+      <em>Returning to the woman you were always meant to be.</em>
+    </p>
+  </div>
+</section>
+
+
+<!-- ══ WHAT'S INSIDE ══ -->
+<section id="offers">
+  <div class="header">
+    <p class="eyebrow fr">What's inside</p>
+    <h2 class="fr d1">
+      Four <span class="serif-italic">powerful offerings</span><br>woven together.
+    </h2>
+  </div>
+
+  <div class="cards">
+
+    <div class="card fr">
+      <div class="card-img">
+        <img src="mysticbella_please_create_a_photographic_image_of_a_midlife_w_97cd189e-8eca-49eb-a72e-cff591c18d43_2.png" alt="Foundations">
+      </div>
+      <div class="card-body">
+        <div class="card-num">01</div>
+        <h3>Healing the <span class="serif-italic">Mother Wound</span> Foundations</h3>
+        <p>A self-paced journey exploring inherited patterns that shape your vitality, nourishment, receiving, and self-worth — with the Flower of Life Akashic Method woven throughout.</p>
+      </div>
+    </div>
+
+    <div class="card fr d1">
+      <div class="card-img">
+        <img src="Hands over Heart in Trees.jpg" alt="Monthly Akashic Circle">
+      </div>
+      <div class="card-body">
+        <div class="card-num">02</div>
+        <h3>LIVE Akashic <span class="serif-italic">Monthly Circle</span></h3>
+        <p>Our monthly live gathering — teaching, somatic practices, Akashic guidance, and deep clearing work using your own Akashic Record. Recorded. Access all past sessions.</p>
+      </div>
+    </div>
+
+    <div class="card fr d2">
+      <div class="card-img">
+        <img src="703688023_1345185020807238_1639472407732096219_n.jpg" alt="Sacred Nourishment Vault">
+      </div>
+      <div class="card-body">
+        <div class="card-num">03</div>
+        <h3>The Sacred <span class="serif-italic">Nourishment Vault</span></h3>
+        <p>Recipes, rituals, herbal allies, a 21-day reset, and fresh monthly nourishment guides — nutrient dense, hormone-supportive, and anti-inflammatory.</p>
+      </div>
+    </div>
+
+    <div class="card fr d3">
+      <div class="card-img">
+        <img src="mysticbella_nature_based_image_of_Women_in_a_circle_with_the__3dd09078-0e64-48bb-85cd-ec7f101c419a_3.jpg" alt="Women Walking Beside Women">
+      </div>
+      <div class="card-body">
+        <div class="card-num">04</div>
+        <h3>Women <span class="serif-italic">Walking Beside</span> Women</h3>
+        <p>A community where women witness, inspire, and remember themselves together. A place to land, recalibrate, and be seen. You were never meant to do this alone.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══ THE JOURNEY ══ -->
+<section id="journey">
+  <div class="inner">
+    <p class="eyebrow fr">How it works</p>
+    <h2 class="fr d1">
+      Everything <span class="serif-italic">inside<br>the membership.</span>
+    </h2>
+    <div style="border-top:1px solid #E4E4E4;">
+      <div class="jrow fr">
+        <div class="num">01</div>
+        <h4>Foundations Course</h4>
+        <p>Self-paced exploration of the Mother Wound through a holistic lens — how inherited patterns shape vitality, nourishment, receiving, and self-worth. Introduction to the Flower of Life Akashic Method with reflection and integration exercises for each module.</p>
+      </div>
+      <div class="jrow fr d1">
+        <div class="num">02</div>
+        <h4>LIVE Akashic Monthly Circle</h4>
+        <p>Teaching and reflection, somatic and embodiment practices, Akashic guidance and inquiry, personal integration work. Deep clearing to untangle inherited Motherline patterns. Recorded — access all past sessions.</p>
+      </div>
+      <div class="jrow fr d2">
+        <div class="num">03</div>
+        <h4>Sacred Nourishment Vault</h4>
+        <p>Nourishment practices, rituals, hormone-supportive recipes, kitchen detox, gentle 3 or 7-day cleanse, herbal teas, mocktails, and fresh monthly nourishment guides with grocery lists.</p>
+      </div>
+      <div class="jrow fr d3">
+        <div class="num">04</div>
+        <h4>LIVE Midlife Wisdom &amp; Integration Circle</h4>
+        <p>Monthly Q&amp;A and coaching — real-life application, intuitive guidance, creative expression (journaling, art, reflection), and community connection. A place to slow down, be seen, and celebrate shifts. Recorded.</p>
+      </div>
+      <div class="jrow fr d4">
+        <div class="num">05</div>
+        <h4>Community &amp; Women Walking Beside Women</h4>
+        <p>A private space to share meals, witness each other, stay accountable and inspired, and navigate midlife together. Something powerful happens when women stop navigating midlife alone.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ TARA BIO ══ -->
+<section id="bio">
+  <div class="inner">
+    <div class="bio-img-col">
+      <!-- Upload tara-field.jpg: Tara sitting in green field by river, gray linen dress -->
+      <div class="bio-img-wrap">
+        <img src="Sitting by Grass.jpg" alt="Tara Preston">
+      </div>
+    </div>
+    <div>
+      <p class="eyebrow fr">Meet Tara</p>
+      <h2 class="fr d1">Tara Preston</h2>
+      <div class="bio-text fr d2">
+        <p>Tara Preston is a Midlife Recalibration Guide, Sacred Nourishment Mentor, Woman's Wellness Speaker, Host of the Radiant Midlife Podcast, and Creator of the Flower of Life Akashic Method &amp; Certification.</p>
+        <p>For over 15 years, Tara has guided women through profound personal transformation, helping them heal inherited patterns, reconnect with themselves, and step into new seasons of life with greater vitality, confidence, and self-trust.</p>
+        <p>Her work evolved through a deeply personal journey into nourishment, vitality, and midlife wellbeing — with foundations in holistic nutrition through the Canadian School of Natural Nutrition.</p>
+        <p>What Tara discovered is that many women aren't simply exhausted because they're busy. They're depleted because they've spent decades putting themselves last — conditioned to overgive, over-function, and carry responsibility for everyone around them.</p>
+        <p>Today, Tara's work focuses on helping women heal the Mother Wound in midlife through a unique blend of sacred nourishment, nervous system recalibration, embodiment practices, Akashic healing, and feminine leadership work.</p>
+        <p>She is the founder of the Akashic Women's School and creator of the Flower of Life Akashic Method — a feminine body-based healing pathway developed through more than 6,000 Akashic Record sessions.</p>
+      </div>
+      <p class="bio-tagline fr d3">
+        "She believes midlife is not a decline.<br>It is an invitation to reclaim yourself."
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ TESTIMONIALS ══ -->
+<section id="testimonials">
+  <div class="inner">
+    <p class="eyebrow fr" style="text-align:center">What women say</p>
+    <div class="tgrid">
+      <div class="tcard fr">
+        <q>For the first time in a long time, I am finding that supporting my body by listening more deeply to my needs is actually landing. I feel more energized, clearer and like I am on the path to aging well. I am not being pulled around by life and am able to make the shifts I have been wanting to make for a long time.</q>
+        <cite>Lucie Kolmecka</cite>
+      </div>
+      <div class="tcard fr d1">
+        <q>This journey has really helped me reset and focus on the nourishment piece more! Thank you for sharing your journey too, Tara — it's really helped me.</q>
+        <cite>Pam</cite>
+      </div>
+      <div class="tcard fr d2">
+        <q>I am really enjoying this way of eating and loving the shared inspiration from other women's meal pictures. The community support has been so motivating and I finally got my carb addiction under control.</q>
+        <cite>Lucie Kolmecka</cite>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ PRICING ══ -->
+<section id="pricing">
+  <div class="inner">
+    <p class="eyebrow fr">Membership Investment</p>
+    <h2 class="fr d1">Choose your <span class="serif-italic">path home.</span></h2>
+    <p class="sub fr d2">Join a growing community of women healing, nourishing, and becoming — together. A place to land while becoming.</p>
+
+    <div class="pricing-grid fr d3">
+
+      <div class="price-card">
+        <p class="price-label">Monthly</p>
+        <div class="price-amount"><sup>$</sup>47</div>
+        <p class="price-period">USD / month</p>
+        <p class="price-desc">Full membership access. Join, pause, or cancel anytime. Begin your journey at your own pace.</p>
+        <a href="https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=P-4K27104196903533VNIJVIVY"
+           class="btn btn-burg-outline" style="width:100%; justify-content:center;">
+          Join Monthly →
+        </a>
+        <p class="price-note">Cancel anytime</p>
+      </div>
+
+      <div class="price-card featured">
+        <p class="price-label">6 Months</p>
+        <div class="price-amount"><sup>$</sup>235</div>
+        <p class="price-period">USD — one payment</p>
+        <p class="price-desc">Commit to 6 months of nourishment, recalibration &amp; support and receive 1 month free. Sustainable change asks for more than a quick reset.</p>
+        <a href="https://www.paypal.com/ncp/payment/96VUBFRSGYSK8"
+           class="btn btn-burg" style="width:100%; justify-content:center;">
+          Join 6 Months →
+        </a>
+        <p class="price-note">Save $47 · best value</p>
+      </div>
+
+    </div>
+
+    <p class="fr d4" style="margin-top:2.5rem; font-size:.875rem; color:#5F6472; font-style:italic;">
+      "Because sustainable change often asks for more than a quick reset.<br>
+      Sometimes it asks for a place to stay long enough to become."
+    </p>
+  </div>
+</section>
+
+
+<!-- ══ JOIN ══ -->
+<section id="join">
+  <div class="inner">
+    <p class="eyebrow fr">Begin here</p>
+    <h2 class="fr d1">
+      Ready to come<br><span class="serif-italic">home to yourself.</span>
+    </h2>
+    <p class="fr d2">This membership was created for women who no longer desire rigid containers — but do desire space, support, someone wise in their corner, and a community of women navigating similar thresholds.</p>
+    <div class="join-actions fr d3">
+      <a href="#pricing" class="btn btn-burg">Join the membership →</a>
+      <a href="https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=P-4K27104196903533VNIJVIVY"
+         class="btn btn-glass">Start monthly · $47</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="footer-logo-band">
+    <img src="Radiant Midlife Logo.jpg" alt="Radiant Midlife">
+  </div>
+  <div class="inner">
+    <div>
+      <p class="tagline">From depleted to deeply nourished.</p>
+    </div>
+    <div class="footer-right">
+      <a href="#pricing" class="btn btn-dark">Join the membership</a>
+      <div class="footer-socs">
+        <a href="#" class="soc" style="background:#f0f0f0;backdrop-filter:none;" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a href="#" class="soc" style="background:#f0f0f0;backdrop-filter:none;" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-legal">
+    <p>© 2026 Radiant Midlife · Tara Preston. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+  // Fade-rise scroll animations
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('on'); obs.unobserve(e.target); }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fr').forEach(el => {
+    if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add('on');
+    else obs.observe(el);
+  });
+</script>
+
+</body>
+</html>
